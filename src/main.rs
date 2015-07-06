@@ -38,7 +38,7 @@ fn player_turn() -> usize {
 
 fn main() {
     let mut ttt_agent = agent::Agent::new(0.8, 0.6);
-    train_agent(&mut ttt_agent, 1000);
+    train_agent(&mut ttt_agent, 100);
 
     loop {
 		let mut ttt_board = board::Board::new();
