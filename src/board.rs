@@ -78,20 +78,4 @@ impl Board {
 			self.winner = self.cells[4]; return;
 		}
 	}
-	pub fn flip(&self) -> Board {
-		let mut cells = [Cell::EMPTY; 9];
-		for i in (0..9) {
-			cells[i] = match self.cells[i] {
-				Cell::X => Cell::O,
-				Cell::O => Cell::X,
-				_		=> Cell::EMPTY
-			}
-		}
-		let winner = match self.winner {
-			Cell::X => Cell::O,
-			Cell::O => Cell::X,
-			_		=> Cell::EMPTY
-		};
-		Board{cells: cells, turn: if self.turn == Cell::X {Cell::O} else {Cell::X}, winner: winner}
-	}
 }

@@ -11,12 +11,7 @@ fn train_agent(a: &mut agent::Agent, num_episodes: usize) {
 	for _i in (0..num_episodes) {
 		let mut b = board::Board::new();
 		while !b.is_over() {
-			let mut m: usize;
-			if b.get_turn() == board::Cell::O {
-				m = *rand::thread_rng().choose(&b.get_valid_moves()).unwrap();
-			} else {
-				m = a.get_move(b.flip());
-			}
+			let m = *rand::thread_rng().choose(&b.get_valid_moves()).unwrap();
 			a.update_quality(b, m);
 			b = b.make_move(m).unwrap();
 		}
